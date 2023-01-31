@@ -55,7 +55,11 @@ export default function App() {
 
           <button>{isEditing ? "Edit" : "Go"}</button>
         </form>
-        {state.todos.length === 0 && <span>No todos</span>}
+        {state.todos.length === 0 ? (
+          <span>No todos</span>
+        ) : (
+          <span> {`You have ${state.todos.length} Todos`}</span>
+        )}
 
         {state.todos &&
           state.todos.map((item) => (
@@ -71,6 +75,7 @@ export default function App() {
               >
                 {item.text}
               </span>
+
               <button onClick={() => handleEdit(item)}>Edit</button>
               <button
                 onClick={() =>
